@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Women Tech</title>
+</head>
+<body>
+    <canvas width="1200" height="300"></canvas>
+<script>
+    
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'pink';
+    pincel.fillRect(0, 0, 1200, 300);
+
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function desenhaTexto(texto, x , y, tamLetra) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.font= tamLetra + 'px helvetica';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y,1100);    
+    
+    }
+    function pulaLinha(){
+        document.write("<br>");
+    }
+
+    function mostra(frase){
+        pulaLinha();
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function textoExemplo(evento){
+        if(resposta == 1){
+            document.write('<b><b>while (condição){<br>ação;<br>}<br>Traduzindo<br><br>Enquanto (o copo está vazio){<br><br>Continue enchendo;<br><br>}<br><br><br>Para que o nosso while não seja infinito<br>while (condição){<br>ação;<br><br>condição = false<br>}<b><b><b><b><b>Traduzindo<b><b>Enquanto (o copo não está cheio){<br>Continue enchendo;<br>o copo está cheio<br><b>}')
+            document.write('<br><br><form><input type="button" value="Volte para o menu" onClick="history.go(0)"></form>')
+            }
+        else if (resposta == 2){
+            document.write("Exemplo de funcionamento do FOR<br><br>for (variável; condição; incremento){<br>ações;<br><br>Traduzindo<br><br>for ( copo; encha o copo até 100ml; encha mais o copo){<br>coloque 10ml no copo)}")
+            document.write('<br><br><form><input type="button" value="Volte para o menu" onClick="history.go(0)"></form>')
+        }
+    }
+    alert("Vamos aprender estruturas de repetição?")
+    var resposta = parseInt(prompt("Escolha 1 - While ou 2 - For"));
+        
+    if (resposta == 1){
+        desenhaTexto('WHILE', 30,80,26) 
+        desenhaTexto('Testa uma determinada condição e continua fazendo isso enquanto ela for avaliada como true.', 30, 120) 
+        desenhaTexto("Para que esta repetição tenha fim em determinado momento, ela precisa ser avaliada como false.", 30, 160)
+        desenhaTexto("Caso contrário, teremos um loop infinito, ou seja, um laço que nunca vai parar." , 30, 200)    
+        desenhaTexto("Clique na tela para ver um exemplo", 900,280,'15')
+    }   
+    else if (resposta == 2){
+        desenhaTexto('FOR', 30,80,'26') 
+        desenhaTexto('Assim como o WHILE o FOR testa uma condição repetidas vezes, mas ao invés de utilizar uma expressão desconhecida,', 30, 120) 
+        desenhaTexto("utilizamos um conjunto fixo de circunstâncias. É preciso inicializar uma variável com um valor qualquer,", 30, 160)
+        desenhaTexto("testar uma condição, e incrementar ou decrementar o valor da variável inicial, tudo na mesma instrução." , 30, 200)
+        desenhaTexto("Clique na tela para ver um exemplo", 900,280,'15')
+    }
+    
+    
+    
+    tela.onclick = textoExemplo 
+   
+</script>
+
+<form> 
+    <input type="button" value="Escolha outra opção" onClick="history.go(0)">
+</form>
+
+</body>
+</html>

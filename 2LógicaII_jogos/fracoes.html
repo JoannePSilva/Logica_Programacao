@@ -1,0 +1,38 @@
+<head></head>
+<body>
+<meta charset="UTF-8">
+<h2><b>De acordo com o desenho a seguir responda</b></h2>
+<canvas width="700" height="500"></canvas>
+
+<script>
+
+    function desenhaQuadrado(x, y, tamanho, cor) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle=cor;
+        pincel.fillRect(x,y, tamanho, tamanho);
+        pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, tamanho, tamanho);
+    }
+
+    function desenhaTexto(texto, x , y) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.font='26px helvetica';
+        pincel.fillStyle='purple';
+        pincel.fillText(texto, x, y);    
+    }
+
+
+    desenhaTexto(" a) Qual é a fração?", 50, 30);
+
+    var y = 50;
+    desenhaQuadrado(50, y, 100, 'magenta');
+    desenhaQuadrado(150, y, 100, 'magenta');
+    desenhaQuadrado(250, y, 100, 'magenta');
+    desenhaQuadrado(350, y, 100, 'white');
+
+</script>
+</body>
