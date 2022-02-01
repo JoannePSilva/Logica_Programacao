@@ -1,3 +1,10 @@
+<%@page import= "java.util.ArrayList, com.empregos_vagas.models.Cadastro;"%> 
+
+
+<%
+ArrayList<Cadastro> cadastro = (ArrayList<Cadastro>)request.getAttribute("cadastro"));
+%> 
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -36,36 +43,38 @@
 
 </head>
 <body>
-
-  
-<form name="form" id="form" onsubmit="return validar_tudo();">
-  <form action="/empregos_vagas/cadastrado.jsp">
-  <table>
-    <tr><th colspan=2>Cadastro</th></tr>
-    <tr><td><label for="texto">Descrição:</label></td>
-      <td><input type="text" name="texto" id="texto" required autocomplete="off"
-      maxlength="20" minlength="10" onblur="validar_texto();"></td></tr>
-  
-  <tr><td><label for="texto">Requisitos Obrigatórios:</label></td>
-    <td><input type="text" name="texto" id="texto" required autocomplete="off"
-    maxlength="20" minlength="10" onblur="validar_texto();"></td></tr>
-
-    <tr><td><label for="texto">Requisitos Desejáveis:</label></td>
-      <td><input type="text" name="texto" id="texto" required autocomplete="off"
-      maxlength="20" minlength="10" onblur="validar_texto();"></td></tr>
-      
-    <tr><td><label for="texto">Remuneração:</label></td>
-      <td><input type="text" name="texto" id="texto" required autocomplete="off"
-        maxlength="20" minlength="10" onblur="validar_texto();"></td></tr>
-
-    <tr><td><label for="texto">Local de trabalho:</label></td>
-      <td><input type="text" name="lt" id="lt" required autocomplete="off"
-        maxlength="20" minlength="10" onblur="validar_texto();"></td></tr>
-                           
-    </select></td></tr>
-  
-  <tr><th><button type="submit" id = "submit" name="submit" value ="submit"> Enviar</button></th>
-    
+<body>
+    <h1>Cadastrado</h1>
+    <form action="/empregos_vagas/cadastrado.jsp">
+        Nome:<input type="text" name="nome" id="nome">
+        <input type="submit" value="Filtrar">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Requisitos Obrigatórios</th>
+                <th>Requisitos Desejáveis</th>
+                <th>Remuneração</th>
+                <th>Local de trabalho</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (Cadastro model : cadastro) { %>
+                <tr>
+                    <td><%= model.getDescricao() %></td>
+                    <td><%= model.getRequisitosObrigatorios() %></td>
+                    <td><%= model.getRequisitosDesejaveis() %></td>
+                    <td><%= model.getRemuneracao() %></td>
+                    <td><%= model.getLocalDeTrabalho() %></td>
+                    
+                </tr>
+            <%}%>
+        </tbody>
+    </table>
+</body>
+ 
+   
   </table>
 </form>
 
